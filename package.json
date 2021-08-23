@@ -1,0 +1,24 @@
+{
+  "name": "class-repo-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bh007183/class-repo-manager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bh007183/class-repo-manager/issues"
+  },
+  "homepage": "https://github.com/bh007183/class-repo-manager#readme",
+  "dependencies": {
+    "inquirer": "^8.1.2"
+  }
+}
