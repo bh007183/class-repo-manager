@@ -1,6 +1,11 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const path = require("path");
+const child_process = require('child_process'); // native in nodeJs
+
+
+
+
 
 var copyRecursiveSync = function (src, dest) {
   try {
@@ -11,7 +16,6 @@ var copyRecursiveSync = function (src, dest) {
     if (isDirectory) {
       fs.mkdirSync(dest);
       fs.readdirSync(src).forEach(function (childItemName) {
-        console.log(childItemName);
         if (
           childItemName !== "Solved" &&
           childItemName !== "Main" &&
@@ -58,9 +62,15 @@ inquirer
       ],
     },
   ])
-  .then((res) => {
-    copyRecursiveSync(
+  .then(async(res) => {
+    await copyRecursiveSync(
       `/Users/benhopkins/class/fullstack-online/01-Class-Content/${res.data}`,
       `/Users/benhopkins/class/test/${res.data}`
     );
+    var child = child_process.spawn("git", ["add ." && "status"], {
+      cwd: '/Users/benhopkins/class/test'
+  });
+  
+ 
+
   });
