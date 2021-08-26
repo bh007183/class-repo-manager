@@ -30,6 +30,7 @@ var copyRecursiveSync = function (src, dest) {
     } else {
       fs.copyFileSync(src, dest);
     }
+  
   } catch (err) {
     console.error(err.message);
   }
@@ -65,12 +66,23 @@ inquirer
   .then(async(res) => {
     await copyRecursiveSync(
       `/Users/benhopkins/class/fullstack-online/01-Class-Content/${res.data}`,
-      `/Users/benhopkins/class/test/${res.data}`
+      `/Users/benhopkins/class/test/test-script/${res.data}`
     );
-    var child = child_process.spawn("git", ["add ." && "status"], {
-      cwd: '/Users/benhopkins/class/test'
+    
+  let child = child_process.exec('git add . && git commit -m "Initial commit" && git push', { cwd: '/Users/benhopkins/class/test/test-script'})
+   child.stderr.on('data', function (data) {
+    console.error("STDERR:", data.toString());
   });
-  
- 
+   child.stderr.on('error', function (data) {
+    console.error("test", data.toString());
+  });
+  child.stdout.on('data', function (data) {
+    console.log("STDOUT:", data.toString());
+  });
+  child.on('exit', function (exitCode) {
+    console.log("Child exited with code: " + exitCode);
+  });
 
   });
+  
+
