@@ -1,4 +1,5 @@
 const inquirer = require("inquirer");
+console.log("thishtisoihoh")
 const fs = require("fs");
 const path = require("path");
 const child_process = require("child_process"); // native in nodeJs
@@ -70,16 +71,16 @@ function copyRecursiveSync(src, dest) {
     console.error(err.message);
   }
 }
-
-setInterval(() => {
+// /uncc-virt-bo-fsf-pt-07-2021-u-b/${choices[nextIndex]}
+// setInterval(() => {
   console.log("setInterval triggered")
   if (moment().format("dddd") === "Friday") {
     copyRecursiveSync(
       `/Users/benhopkins/class/fullstack-online/01-Class-Content/${choices[nextIndex]}`,
-      `/Users/benhopkins/class/uncc-virt-bo-fsf-pt-07-2021-u-b/${choices[nextIndex]}`
+      `/Users/benhopkins/class`
     );
     let child = child_process.exec(
-      'git add . && git commit -m "Initial commit" && git push',
+      'git add . && git commit -m "First Push of Week" && git push',
       { cwd: "/Users/benhopkins/class/uncc-virt-bo-fsf-pt-07-2021-u-b" }
     );
     child.stderr.on("data", function (data) {
@@ -95,6 +96,6 @@ setInterval(() => {
       console.log("Child exited with code: " + exitCode);
     });
   }
-}, 42500000);
+// }, 86400000);
 
 
