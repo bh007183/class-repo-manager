@@ -71,13 +71,12 @@ function copyRecursiveSync(src, dest) {
     console.error(err.message);
   }
 }
-// /uncc-virt-bo-fsf-pt-07-2021-u-b/${choices[nextIndex]}
-// setInterval(() => {
+
   console.log("setInterval triggered")
   if (moment().format("dddd") === "Friday") {
     copyRecursiveSync(
       `/Users/benhopkins/class/fullstack-online/01-Class-Content/${choices[nextIndex]}`,
-      `/Users/benhopkins/class`
+      `/Users/benhopkins/class/uncc-virt-bo-fsf-pt-07-2021-u-b/${choices[nextIndex]}`
     );
     let child = child_process.exec(
       'git add . && git commit -m "First Push of Week" && git push',
@@ -96,6 +95,6 @@ function copyRecursiveSync(src, dest) {
       console.log("Child exited with code: " + exitCode);
     });
   }
-// }, 86400000);
+
 
 
