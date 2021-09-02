@@ -73,7 +73,7 @@ function copyRecursiveSync(src, dest) {
 }
 
   console.log("setInterval triggered")
-  if (moment().format("dddd") === "Friday") {
+
     copyRecursiveSync(
       `/Users/benhopkins/class/fullstack-online/01-Class-Content/${choices[nextIndex]}`,
       `/Users/benhopkins/class/uncc-virt-bo-fsf-pt-07-2021-u-b/${choices[nextIndex]}`
@@ -94,7 +94,6 @@ function copyRecursiveSync(src, dest) {
     child.on("exit", function (exitCode) {
       console.log("Child exited with code: " + exitCode);
     });
-  }
 
 
 
