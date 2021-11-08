@@ -31,7 +31,7 @@ const choices = [
   "24-Project-3",
 ];
 const PathToLocalVersionOfGitLab =
-  "/Users/benhopkins/code/uncc-virt-bo-fsf-pt-07-2021-u-b";
+  "/Users/benhopkins/Javascript/uncc-virt-bo-fsf-pt-07-2021-u-b";
 // Getting list of current folders in GitLab
 let ArrayOfFolders = fs
   .readdirSync(PathToLocalVersionOfGitLab)
